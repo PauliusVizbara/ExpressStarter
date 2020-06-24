@@ -4,8 +4,14 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
+    "postinstall": "link-module-alias",
     "dev": "tsnd --respawn src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "_moduleAliases": {
+    "models": "./src/models/",
+    "services": "./src/services/",
+    "interfaces": "./src/interfaces/"
   },
   "keywords": [],
   "author": "",
@@ -17,8 +23,14 @@
   "dependencies": {
     "@types/node": "^14.0.13",
     "@types/ws": "^7.2.5",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "link-module-alias": "^1.2.0",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.20",
+    "reflect-metadata": "^0.1.13",
+    "typedi": "^0.8.0",
     "typescript": "^3.9.5",
     "winston": "^3.3.3",
     "ws": "^7.3.0"

@@ -6,8 +6,6 @@ export default  (app) => {
         if ( file !== 'index.ts') {
             const route = await import(path.join(__dirname, file));
             app.use('/book', route.default)
-
         }
-
     });
 };

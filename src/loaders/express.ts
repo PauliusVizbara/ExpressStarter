@@ -1,4 +1,5 @@
-import express, {Router} from 'express'
+import express from 'express'
+import bodyParser from 'body-parser';
 import config from '../config/index'
 import initRoutes from '../api/routes'
 import * as http from 'http';
@@ -10,8 +11,12 @@ export default () => {
 
     initRoutes(app)
 
+    app.use(bodyParser.json());
+
     server.listen(config.port, () => {
 
     });
+
+    return app
 
 }
