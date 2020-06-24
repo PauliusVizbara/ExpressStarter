@@ -1,5 +1,7 @@
 import winston from 'winston'
 
+winston.addColors(winston.config.npm.colors);
+
 const transports = [];
 if(process.env.NODE_ENV !== 'development') {
     transports.push(
