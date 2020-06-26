@@ -6,7 +6,9 @@ import { IBookDTO } from "interfaces";
 const route = Router();
 
 route.get('/', async (req, res) => {
-
+    const bookServiceInstance = Container.get(BookService)
+    const response = await bookServiceInstance.getAllBooks()
+    return res.json(response)
 });
 
 route.get('/:id', (req, res) => {
