@@ -2,8 +2,9 @@ import {Container} from "typedi";
 
 export class WSSController{
     constructor() {
-        const wssServer : any = Container.get('wss')
-        wssServer.on('connection', (ws: any) => {
+        const {instance : wss, connections} : any  = Container.get('wss')
+        wss.on('connection', (ws: any) => {
+            connections.push(ws)
             ws.on('message', (message) => this.onMessage(ws,message));
         })
     }

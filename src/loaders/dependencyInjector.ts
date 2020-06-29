@@ -7,7 +7,5 @@ export default (dbConnection, wss) => {
         Container.set(model.name, model.model)
     })
 
-
-
-    Container.set('wss', wss)
+    Container.set('wss', {instance: wss, connections: []})
 }
