@@ -21,10 +21,9 @@ but missing:
 
 See `env.example` for an example configuration
 
+## Setup
 
- ##Setup
-
- `yarn` to install dependencies
+`yarn` to install dependencies
  
- `yarn dev` to start the development server:
+`yarn dev` to start the development server:
 
