@@ -15,11 +15,6 @@ export default async () => {
     const mongoConnection = await mongooseLoader()
     Logger.info('✔️ Database loaded')
 
-    dependencyInjectorLoader(mongoConnection, wss)
+    dependencyInjectorLoader(mongoConnection, Logger, wss)
     Logger.info('✔️ Dependencies injected')
-
-    Logger.info("================================")
-    Logger.info(`✔️ Server listening on port ${config.port}`)
-    Logger.info("================================")
-
 }
