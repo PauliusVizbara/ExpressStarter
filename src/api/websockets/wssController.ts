@@ -1,11 +1,16 @@
 import {Container} from "typedi";
+import { v4 as uuid } from 'uuid';
 import WebSocket from "ws";
 
 export class WSSController{
     constructor() {
         const {instance : wss, connections} : any  = Container.get('wss')
         wss.on('connection', (ws: WebSocket) => {
-            ws.on('message', (message) => this.onMessage(ws,message));
+            const wsId = uuid()
+            connections[wsId] = ws
+            ws.on('message', (message) => this.onMessage(ws,message))
+
+            ws.send(JSON.stringify({id: wsId}))
         })
     }
 
